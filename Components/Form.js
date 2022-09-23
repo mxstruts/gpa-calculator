@@ -13,8 +13,9 @@ function Form() {
     const [searchValueMark4, setSearchValueMark4] = useState('')
     const [searchValueMark5, setSearchValueMark5] = useState('')
     const [searchValueMark6, setSearchValueMark6] = useState('')
+    const [addClass, setAddClass] = useState(false)
     let [totalGpa, setTotalGpa] = useState('0')
-    const sum = (a, b, c, d, f, g, k, l, m, n) => {
+    const sum = (a, b, c, d, f, g, k, l, m, n, o, p) => {
         let gradePoints =
             parseInt(a) * parseInt(b) +
             parseInt(c) * parseInt(d) +
@@ -24,6 +25,11 @@ function Form() {
 
         let credits =
             parseInt(a) + parseInt(c) + parseInt(f) + parseInt(k) + parseInt(m)
+        /*+parseInt(o) * parseInt(p)*/
+        if (addClass) {
+            gradePoints = gradePoints + parseInt(o) * parseInt(p)
+            credits = credits + parseInt(o)
+        }
 
         const res = (gradePoints / credits).toFixed(2)
         console.log(res)
@@ -158,28 +164,31 @@ function Form() {
                             />
                         </div>
                     </div>
-
-                    <div className="md:flex md:items-center mb-6">
-                        <div className="md:w-1/3">
-                            <label htmlFor="inline-full-name">Class 6</label>
+                    {addClass && (
+                        <div className="md:flex md:items-center mb-6">
+                            <div className="md:w-1/3">
+                                <label htmlFor="inline-full-name">
+                                    Class 6
+                                </label>
+                            </div>
+                            <div className="md:w-1/4">
+                                <input
+                                    id="inline-full-name"
+                                    maxLength={1}
+                                    type="text"
+                                    placeholder="Credits"
+                                    value={creditsPoints6}
+                                    onChange={(e) =>
+                                        setCreditsPoints6(
+                                            e.target.value
+                                                .replace(/\D/g, '')
+                                                .replace(/6|7|8|9|0/gi, '')
+                                        )
+                                    }
+                                />
+                            </div>
                         </div>
-                        <div className="md:w-1/4">
-                            <input
-                                id="inline-full-name"
-                                maxLength={1}
-                                type="text"
-                                placeholder="Credits"
-                                value={creditsPoints6}
-                                onChange={(e) =>
-                                    setCreditsPoints6(
-                                        e.target.value
-                                            .replace(/\D/g, '')
-                                            .replace(/6|7|8|9|0/gi, '')
-                                    )
-                                }
-                            />
-                        </div>
-                    </div>
+                    )}
                 </form>
             </div>
             <div className="pt-8">
@@ -278,29 +287,30 @@ function Form() {
                             />
                         </div>
                     </div>
-
-                    <div className="md:flex md:items-center mb-6">
-                        <div className="md:w-1/3">
-                            <input
-                                id="inline-full-name"
-                                maxLength={1}
-                                type="text"
-                                placeholder="Mark"
-                                value={searchValueMark6}
-                                onChange={(e) =>
-                                    setSearchValueMark6(
-                                        e.target.value
-                                            .replace(/\D/g, '')
-                                            .replace(/6|7|8|9|/gi, '')
-                                    )
-                                }
-                            />
+                    {addClass && (
+                        <div className="md:flex md:items-center mb-6">
+                            <div className="md:w-1/3">
+                                <input
+                                    id="inline-full-name"
+                                    maxLength={1}
+                                    type="text"
+                                    placeholder="Mark"
+                                    value={searchValueMark6}
+                                    onChange={(e) =>
+                                        setSearchValueMark6(
+                                            e.target.value
+                                                .replace(/\D/g, '')
+                                                .replace(/6|7|8|9|/gi, '')
+                                        )
+                                    }
+                                />
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </form>
             </div>
             <div className="mt-32 space-y-3">
-                <div className="md:w-2/3 space-y-3 block">
+                <div className=" space-y-3 flex flex-col ">
                     <button
                         className=" shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                         type="button"
@@ -315,7 +325,9 @@ function Form() {
                                 creditsPoints4,
                                 searchValueMark4,
                                 creditsPoints5,
-                                searchValueMark5
+                                searchValueMark5,
+                                creditsPoints6,
+                                searchValueMark6
                             )
                         }>
                         Calculate
@@ -327,6 +339,11 @@ function Form() {
                             resetValues()
                         }}>
                         Reset
+                    </button>
+                    <button
+                        className="shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded float-left w-[8.3rem] "
+                        onClick={() => setAddClass(!addClass)}>
+                        {addClass ? 'Remove class' : 'Add class'}
                     </button>
                 </div>
 
