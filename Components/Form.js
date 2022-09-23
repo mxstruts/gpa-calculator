@@ -55,6 +55,7 @@ function Form() {
         <div className="bg-[#18181F] rounded-xl h-[600px] w-1/2 mt-[100px]  m-[auto] flex space-x-1  justify-center pt-[4rem] border-white border-2">
             <div className="pt-8">
                 <form className="w-full max-w-sm ">
+                    <p className="flex ml-24 mb-8">Credits</p>
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
                             <label htmlFor="inline-full-name">Class 1</label>
@@ -76,7 +77,6 @@ function Form() {
                             />
                         </div>
                     </div>
-
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
                             <label htmlFor="inline-full-name">Class 2</label>
@@ -98,7 +98,6 @@ function Form() {
                             />
                         </div>
                     </div>
-
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
                             <label htmlFor="inline-full-name">Class 3</label>
@@ -120,7 +119,6 @@ function Form() {
                             />
                         </div>
                     </div>
-
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
                             <label htmlFor="inline-full-name">Class 4</label>
@@ -142,7 +140,6 @@ function Form() {
                             />
                         </div>
                     </div>
-
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
                             <label htmlFor="inline-full-name">Class 5</label>
@@ -192,6 +189,7 @@ function Form() {
                 </form>
             </div>
             <div className="pt-8">
+                <p className="flex ml-4 mb-8">Mark</p>
                 <form className="w-full max-w-sm">
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
@@ -357,7 +355,7 @@ function Form() {
                     </ul>
                 </div>
             </div>
-            <div className="relative pt-12 right-48 h-3 w-36 flex space-x-3">
+            <div className="relative pt-12 right-32 h-3 w-36 flex space-x-3">
                 <p>Your GPA is:</p> <p className="text-amber-400">{totalGpa}</p>
             </div>
         </div>
