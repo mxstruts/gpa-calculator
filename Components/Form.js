@@ -310,7 +310,7 @@ function Form() {
             <div className="mt-32 space-y-3">
                 <div className=" space-y-3 flex flex-col ">
                     <button
-                        className=" shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        className=" shadow bg-[#0b537a] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-gray-100 font-bold py-2 px-4 rounded"
                         type="button"
                         onClick={() =>
                             sum(
@@ -331,7 +331,7 @@ function Form() {
                         Calculate
                     </button>
                     <button
-                        className="shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        className="shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-gray-300 font-bold py-2 px-4 rounded"
                         type="button"
                         onClick={() => {
                             resetValues()
@@ -339,7 +339,7 @@ function Form() {
                         Reset
                     </button>
                     <button
-                        className="shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded float-left w-[8.3rem] "
+                        className="shadow bg-[#0E79B2] hover:bg-[#00693c] focus:shadow-outline focus:outline-none text-gray-300 font-bold py-2 px-4 rounded float-left w-[8.3rem] "
                         onClick={() => setAddClass(!addClass)}>
                         {addClass ? 'Remove class' : 'Add class'}
                     </button>
@@ -356,7 +356,10 @@ function Form() {
                 </div>
             </div>
             <div className="relative pt-12 right-32 h-3 w-36 flex space-x-3">
-                <p>Your GPA is:</p> <p className="text-amber-400">{totalGpa}</p>
+                <p>Your GPA is:</p>
+                <p className="text-amber-400">
+                    {totalGpa === 'NaN' ? '0' : totalGpa}
+                </p>
             </div>
         </div>
     )
