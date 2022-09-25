@@ -13,7 +13,7 @@ export default function Home() {
                 <link rel="icon" href="/flavicon.png" />
             </Head>
 
-            <main className="relative pl-4 pb-24  lg:pl-16">
+            <main>
                 <div>
                     <Form />
                 </div>
